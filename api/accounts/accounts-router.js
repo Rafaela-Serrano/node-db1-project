@@ -21,9 +21,9 @@ middleware.checkAccountPayload,
 middleware.checkAccountNameUnique,
 async(req, res, next) => {
  try{
-  const newAccount = await Account.create({name:req.body.name.trim(),
-  budget:req.body.budget})
-  res.status(201).json(newAccount)
+  const AccountId = await Account.create({name:req.body.name.trim(), budget:req.body.budget})
+  const NewAcount = await Account.getById(AccountId)
+  res.status(201).json(NewAcount)
  }catch(err){
   next(err)
  }

@@ -8,9 +8,8 @@ const getById = id => {
  return db('accounts').where('id',id).first()
 }
 
-async function create (account) {
-const [id] = db('accounts').insert(account);
-return getById(id)
+async function create ( account) {
+return db('accounts').insert(account) 
 }
 
 async function updateById (id, account) {

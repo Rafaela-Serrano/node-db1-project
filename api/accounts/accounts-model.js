@@ -5,10 +5,10 @@ const getAll = () => {
 }
 
 const getById = id => {
- return db('accounts').where('accountsid',id).first()
+ return db('accounts').where('id',id).first()
 }
 
-const create = async account => {
+async function create (account) {
 const [id] = db('accounts').insert(account);
 return getById(id)
 }
